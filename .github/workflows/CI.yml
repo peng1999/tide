@@ -33,25 +33,3 @@ jobs:
 
       - name: Run full test suite
         run: tide test --all --CI
-
-  prettier:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actionsx/prettier@v2
-        with:
-          args: --check .
-
-  super-linter:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: github/super-linter@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_MD: true
-          VALIDATE_YAML: true
